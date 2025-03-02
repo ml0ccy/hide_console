@@ -1,0 +1,20 @@
+[package]
+name = "hide_console"
+version = "0.1.0"
+edition = "2021"
+authors = ["mloccy <devmloccy@gmail.com>"]
+description = "A library for hiding console windows in Rust applications"
+license = "MIT"
+repository = "https://github.com/yourusername/hide_console"
+keywords = ["windows", "console", "gui", "hide", "background"]
+categories = ["api-bindings", "os::windows-apis"]
+readme = "README.md"
+
+[dependencies]
+cfg-if = "1.0.0"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.9", features = ["winuser", "wincon"] }
+
+[dev-dependencies]
+ctrlc = "3.2.4"
