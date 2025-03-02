@@ -4,40 +4,40 @@ use std::time::Duration;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
 
-// Эмуляция GUI-приложения без реальной графики
+// GUI application emulation without real graphics
 fn main() {
-    println!("Запуск GUI-приложения...");
-    println!("Сейчас будет скрыта консоль");
+    println!("Starting GUI application...");
+    println!("The console will be hidden now");
     thread::sleep(Duration::from_secs(2));
     
-    // Скрываем консоль, чтобы приложение выглядело как полноценное GUI-приложение
+    // Hide the console to make the application look like a full-fledged GUI application
     hide_console();
     
-    // Флаг для управления работой приложения
+    // Flag to control application execution
     let running = Arc::new(AtomicBool::new(true));
     let r = running.clone();
     
-    // Обработчик сигнала завершения (Ctrl+C)
+    // Termination signal handler (Ctrl+C)
     ctrlc::set_handler(move || {
-        println!("Получен сигнал завершения, закрываем приложение...");
+        println!("Termination signal received, closing application...");
         r.store(false, Ordering::SeqCst);
-    }).expect("Ошибка при установке Ctrl-C обработчика");
+    }).expect("Error setting up Ctrl-C handler");
     
-    // Эмуляция обработки событий в GUI-приложении
-    println!("GUI-приложение запущено в фоновом режиме");
-    println!("Для завершения работы нажмите Ctrl+C (если консоль видна) или завершите процесс через диспетчер задач");
+    // Emulating event processing in a GUI application
+    println!("GUI application is running in background mode");
+    println!("To exit, press Ctrl+C (if console is visible) or terminate the process through task manager");
     
     let mut counter = 0;
     while running.load(Ordering::SeqCst) {
-        // Эмуляция обработки событий GUI
+        // Emulating GUI event processing
         counter += 1;
         if counter % 10 == 0 {
-            println!("Обработано {} событий", counter);
+            println!("Processed {} events", counter);
         }
         
-        // Пауза между итерациями цикла событий
+        // Pause between event loop iterations
         thread::sleep(Duration::from_millis(500));
     }
     
-    println!("GUI-приложение завершило работу");
+    println!("GUI application has terminated");
 } 

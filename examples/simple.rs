@@ -3,22 +3,22 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-    println!("Это сообщение будет видно до скрытия консоли");
+    println!("This message will be visible before hiding the console");
     
-    println!("Проверка поддержки скрытия консоли: {}", 
-        if is_hide_console_supported() { "Поддерживается" } else { "Не поддерживается" });
+    println!("Checking console hiding support: {}", 
+        if is_hide_console_supported() { "Supported" } else { "Not supported" });
     
-    // Скрываем консольное окно после 2 секунд ожидания
+    // Hiding the console window after 2 seconds delay
     thread::sleep(Duration::from_secs(2));
     
     hide_console();
     
-    // Этот текст будет записан в stdout, но не будет виден в консоли
-    println!("Консоль скрыта!");
-    println!("Программа будет работать еще 5 секунд...");
+    // This text will be written to stdout, but won't be visible in the console
+    println!("Console is hidden!");
+    println!("The program will continue running for 5 more seconds...");
     
-    // Продолжаем работу в фоновом режиме...
+    // Continue working in background mode...
     thread::sleep(Duration::from_secs(5));
     
-    println!("Программа завершена!");
+    println!("Program completed!");
 } 

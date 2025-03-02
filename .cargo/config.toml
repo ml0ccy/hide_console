@@ -1,0 +1,9 @@
+[build]
+rustdocflags = [
+    "--html-in-header", "docs-header.html",
+    "--cfg", "docsrs"
+]
+
+[doc]
+# Enable all features for documentation
+all-features = true 

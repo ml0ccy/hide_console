@@ -1,13 +1,21 @@
 # Hide Console
 
-A library for hiding console windows in Rust applications. Perfect for creating background applications or GUI applications without visible console windows.
+[![crates.io](https://img.shields.io/crates/v/hide_console.svg)](https://crates.io/crates/hide_console)
+[![Documentation](https://docs.rs/hide_console/badge.svg)](https://docs.rs/hide_console)
+[![MIT License](https://img.shields.io/crates/l/hide_console.svg)](https://github.com/ml0ccy/hide_console/blob/main/LICENSE)
+
+A library for hiding console windows in Rust applications. Perfect for creating background applications or applications with graphical interface without visible console window.
 
 ## Features
 
-- Hide console windows on Windows platform
-- Cross-platform support (safely works on all platforms)
+- Hiding console window on Windows platform
+- Cross-platform support (works safely on all platforms)
 - Minimal dependencies
-- Simple and intuitive API
+- Simple and clear API
+
+## Documentation
+
+Full documentation is available at [docs.rs/hide_console](https://docs.rs/hide_console).
 
 ## Installation
 
@@ -30,7 +38,6 @@ cargo add hide_console
 
 ```rust
 use hide_console::hide_console;
-use std::io;
 
 fn main() {
     // Perform necessary actions before hiding the console
@@ -39,16 +46,12 @@ fn main() {
     // Hide the console window
     hide_console();
     
-    // Continue running without visible console
+    // Continue program execution without visible console
     println!("This message won't be visible in the console, but will be written to stdout");
-
-    // For dont close the program
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap();
 }
 ```
 
-### Check for Console Hiding Support
+### Checking Console Hiding Support
 
 ```rust
 use hide_console::is_hide_console_supported;
@@ -64,7 +67,7 @@ fn main() {
 
 ### Examples
 
-The library includes several examples that you can run:
+The library contains several examples that you can run:
 
 ```
 # Simple console hiding example
@@ -76,8 +79,8 @@ cargo run --example gui_emulation
 
 ## Platforms
 
-- **Windows**: Full support for console hiding.
-- **macOS, Linux, and others**: The hide_console() function doesn't perform any actions but doesn't cause errors.
+- **Windows**: Full support for hiding console.
+- **macOS, Linux, and others**: The `hide_console()` function doesn't perform any actions, but doesn't cause errors.
 
 ## How It Works
 
@@ -94,7 +97,7 @@ MIT
 
 ## Contributing
 
-Contributions are welcome! Please send pull requests or create issues on GitHub.
+Contributions are welcome! Please submit pull requests or create issues on GitHub.
 
 ## Social Media
 

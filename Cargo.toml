@@ -1,14 +1,24 @@
 [package]
 name = "hide_console"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["mloccy <devmloccy@gmail.com>"]
 description = "A library for hiding console windows in Rust applications"
 license = "MIT"
-repository = "https://github.com/yourusername/hide_console"
+repository = "https://github.com/ml0ccy/hide_console"
 keywords = ["windows", "console", "gui", "hide", "background"]
 categories = ["api-bindings", "os::windows-apis"]
 readme = "README.md"
+documentation = "https://docs.rs/hide_console"
+
+# Settings for docs.rs
+[package.metadata.docs.rs]
+# Show functions for all configured target platforms
+all-features = true
+# Generate documentation also for Windows
+targets = ["x86_64-pc-windows-msvc", "i686-pc-windows-msvc"]
+# Enable rustdoc settings
+rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
 cfg-if = "1.0.0"
