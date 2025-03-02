@@ -30,6 +30,7 @@ cargo add hide_console
 
 ```rust
 use hide_console::hide_console;
+use std::io;
 
 fn main() {
     // Выполните нужные действия до скрытия консоли
@@ -40,6 +41,10 @@ fn main() {
     
     // Продолжить выполнение программы без видимой консоли
     println!("Это сообщение не будет видно в консоли, но будет записано в stdout");
+
+    // Для того, чтобы программа не закрылась
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap();
 }
 ```
 
