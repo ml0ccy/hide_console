@@ -9,6 +9,7 @@ A library for hiding console windows in Rust applications. Perfect for creating 
 ## Features
 
 - Hiding console window on Windows platform
+- Showing console window when needed
 - Cross-platform support (works safely on all platforms)
 - Minimal dependencies
 - Simple and clear API
@@ -23,7 +24,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-hide_console = "0.1.0"
+hide_console = "0.2.1"
 ```
 
 Or use the command:
@@ -51,6 +52,32 @@ fn main() {
 }
 ```
 
+### Showing and Hiding the Console
+
+```rust
+use hide_console::{hide_console, show_console};
+use std::io;
+
+fn main() {
+    // Hide console at application start
+    hide_console();
+    
+    // Do some work without visible console
+    
+    // When user interaction is needed, show console again
+    show_console();
+    println!("Please enter your name:");
+    
+    let mut name = String::new();
+    io::stdin().read_line(&mut name).expect("Failed to read input");
+    
+    println!("Hello, {}!", name.trim());
+    
+    // Hide console again for background work
+    hide_console();
+}
+```
+
 ### Checking Console Hiding Support
 
 ```rust
@@ -75,21 +102,24 @@ cargo run --example simple
 
 # GUI application emulation
 cargo run --example gui_emulation
+
+# Toggle console visibility
+cargo run --example toggle_console
 ```
 
 ## Platforms
 
-- **Windows**: Full support for hiding console.
-- **macOS, Linux, and others**: The `hide_console()` function doesn't perform any actions, but doesn't cause errors.
+- **Windows**: Full support for hiding and showing console.
+- **macOS, Linux, and others**: The functions don't perform any actions, but don't cause errors.
 
 ## How It Works
 
-On Windows platform, the library uses WinAPI to hide the console window:
+On Windows platform, the library uses WinAPI to hide and show the console window:
 
 1. Gets the console window handle using `GetConsoleWindow()`
-2. Hides the window using `ShowWindow()` with the `SW_HIDE` parameter
+2. Hides or shows the window using `ShowWindow()` with the `SW_HIDE` or `SW_SHOW` parameter
 
-On other platforms, the `hide_console()` function simply returns without performing any actions.
+On other platforms, the functions simply return without performing any actions.
 
 ## License
 

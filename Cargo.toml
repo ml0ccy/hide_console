@@ -1,6 +1,6 @@
 [package]
 name = "hide_console"
-version = "0.1.1"
+version = "0.2.1"
 edition = "2021"
 authors = ["mloccy <devmloccy@gmail.com>"]
 description = "A library for hiding console windows in Rust applications"
