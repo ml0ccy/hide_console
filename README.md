@@ -40,6 +40,10 @@ fn main() {
     
     // Continue running without visible console
     println!("This message won't be visible in the console, but will be written to stdout");
+
+    // For dont close the program
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap();
 }
 ```
 
