@@ -30,6 +30,7 @@ cargo add hide_console
 
 ```rust
 use hide_console::hide_console;
+use std::io;
 
 fn main() {
     // Perform necessary actions before hiding the console
