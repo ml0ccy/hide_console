@@ -1,6 +1,6 @@
 # Hide Console
 
-The English version of README will be released in the near future
+The English version of README will be released in the near future, now you can translate this file to your language
 
 Библиотека для скрытия консольного окна в приложениях Rust. Идеально подходит для создания фоновых приложений или приложений с графическим интерфейсом без видимого консольного окна.
 
