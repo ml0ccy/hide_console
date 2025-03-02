@@ -1,99 +1,97 @@
 # Hide Console
 
-The English version of README will be released in the near future, now you can translate this file to your language
+A library for hiding console windows in Rust applications. Perfect for creating background applications or GUI applications without visible console windows.
 
-Библиотека для скрытия консольного окна в приложениях Rust. Идеально подходит для создания фоновых приложений или приложений с графическим интерфейсом без видимого консольного окна.
+## Features
 
-## Возможности
+- Hide console windows on Windows platform
+- Cross-platform support (safely works on all platforms)
+- Minimal dependencies
+- Simple and intuitive API
 
-- Скрытие консольного окна на платформе Windows
-- Кроссплатформенная поддержка (безопасно работает на всех платформах)
-- Минимальные зависимости
-- Простой и понятный API
+## Installation
 
-## Установка
-
-Добавьте в ваш `Cargo.toml`:
+Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
 hide_console = "0.1.0"
 ```
 
-Или используйте команду:
+Or use the command:
 
 ```
 cargo add hide_console
 ```
 
-## Использование
+## Usage
 
-### Базовый пример
+### Basic Example
 
 ```rust
 use hide_console::hide_console;
 
 fn main() {
-    // Выполните нужные действия до скрытия консоли
-    println!("Это сообщение будет видно");
+    // Perform necessary actions before hiding the console
+    println!("This message will be visible");
     
-    // Скрыть консольное окно
+    // Hide the console window
     hide_console();
     
-    // Продолжить выполнение программы без видимой консоли
-    println!("Это сообщение не будет видно в консоли, но будет записано в stdout");
+    // Continue running without visible console
+    println!("This message won't be visible in the console, but will be written to stdout");
 }
 ```
 
-### Проверка поддержки скрытия консоли
+### Check for Console Hiding Support
 
 ```rust
 use hide_console::is_hide_console_supported;
 
 fn main() {
     if is_hide_console_supported() {
-        println!("Скрытие консоли поддерживается на этой платформе");
+        println!("Console hiding is supported on this platform");
     } else {
-        println!("Скрытие консоли не поддерживается на этой платформе");
+        println!("Console hiding is not supported on this platform");
     }
 }
 ```
 
-### Примеры
+### Examples
 
-Библиотека содержит несколько примеров, которые вы можете запустить:
+The library includes several examples that you can run:
 
 ```
-# Простой пример скрытия консоли
+# Simple console hiding example
 cargo run --example simple
 
-# Эмуляция GUI-приложения
+# GUI application emulation
 cargo run --example gui_emulation
 ```
 
-## Платформы
+## Platforms
 
-- **Windows**: Полная поддержка скрытия консоли.
-- **macOS, Linux, и другие**: Функция `hide_console()` не выполняет никаких действий, но не вызывает ошибок.
+- **Windows**: Full support for console hiding.
+- **macOS, Linux, and others**: The hide_console() function doesn't perform any actions but doesn't cause errors.
 
-## Как это работает
+## How It Works
 
-На платформе Windows библиотека использует WinAPI для скрытия консольного окна:
+On Windows platform, the library uses WinAPI to hide the console window:
 
-1. Получает дескриптор консольного окна с помощью `GetConsoleWindow()`
-2. Скрывает окно с помощью `ShowWindow()` с параметром `SW_HIDE`
+1. Gets the console window handle using `GetConsoleWindow()`
+2. Hides the window using `ShowWindow()` with the `SW_HIDE` parameter
 
-На других платформах функция `hide_console()` просто возвращает управление без выполнения каких-либо действий.
+On other platforms, the `hide_console()` function simply returns without performing any actions.
 
-## Лицензия
+## License
 
 MIT
 
-## Вклад в развитие
+## Contributing
 
-Вклады приветствуются! Пожалуйста, отправляйте запросы на слияние (pull requests) или создавайте issues на GitHub. 
+Contributions are welcome! Please send pull requests or create issues on GitHub.
 
-## Соц-сети
+## Social Media
 
 twitch.tv/mloccy_
 
